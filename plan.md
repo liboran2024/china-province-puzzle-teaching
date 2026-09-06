@@ -20,7 +20,7 @@
 | 数据准备 | 仓库内原始GeoJSON、生成脚本 | lib/map-data.json | 34区数量/名单/坐标范围正确 |
 | 页面开发 | 同一React游戏组件、CSS、SVG | 教师教学版 | 拖拽/提示/计数状态完整 |
 | 本地检查 | npm run check、build:web | 无类型错误、有效静态产物 | 状态检查通过 |
-| Git版本管理 | main、teaching、testing | GitHub私有源码与历史 | 分支可查看、构建可追溯 |
+| Git版本管理 | main、teaching、testing | GitHub公开源码与历史 | 分支可查看、构建可追溯 |
 | 自动检查 | push或PR触发CI | 每个分支的构建产物 | Actions成功 |
 | 课堂验收 | 实际电脑、浏览器、触屏、网络 | 实操反馈 | 尚待现场验证 |
 | 网页发布 | 选定分支与已验证产物 | Pages或学校服务器URL | 目标用户可打开，资源无缺失 |
@@ -28,9 +28,9 @@
 
 ## 发布策略
 
-1. GitHub用于代码、分支和构建产物，默认私有。
+1. GitHub用于代码、分支和构建产物，已于2026-09-06按所有者授权公开教学版仓库。
 2. 原Sites私有演示保留；新增静态构建解除对Sites登录及Worker运行时的依赖。
-3. GitHub Pages提供手动工作流，尚未启用；公开入口/套餐/学校网络仍需确认。
+3. GitHub Pages已启用，手动发布teaching分支到https://liboran2024.github.io/china-province-puzzle-teaching/；学校网络仍需现场验证。
 4. 学校服务器可接收dist-web全部文件；教师版与学生版分别放置，后续再配置具体地址。
 5. 本地HTTP版本作为不依赖外网的投屏备用。部署操作步骤见README第8—13节。
 

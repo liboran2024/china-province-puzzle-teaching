@@ -6,7 +6,7 @@
 
 下载压缩包后，请先全部解压，再双击其中的 `启动游戏.bat`，不要直接双击 `index.html`。换到其他电脑时需安装 Python 3 并让 `python` 命令可用。若未自动弹出浏览器，打开启动窗口打印的 `http://127.0.0.1:端口/` 地址。
 
-GitHub仓库是私有的，必须在浏览器登录 `liboran2024` 或获授权账号才能查看。终端已登录不代表浏览器也已登录。GitHub Pages未启用不影响读取仓库；网络问题仍可能影响访问GitHub。
+GitHub仓库已按所有者授权改为公开，无需登录即可查看源码。教师教学版在线入口：https://liboran2024.github.io/china-province-puzzle-teaching/ 。该入口无需安装Python或登录ChatGPT，学校网络可达性仍需现场验证。
 
 用于地理公开课的网页版小游戏，包含34个省级行政区轮廓、南海诸岛附图、拖拽吸附、港澳放大定位、提示、计时和通关庆祝。
 
@@ -16,14 +16,14 @@ GitHub仓库是私有的，必须在浏览器登录 `liboran2024` 或获授权�
 
 | 项目 | 状态与入口 |
 | --- | --- |
-| GitHub 源码仓库 | [liboran2024/china-province-puzzle-teaching](https://github.com/liboran2024/china-province-puzzle-teaching)，私有仓库 |
+| GitHub 源码仓库 | [liboran2024/china-province-puzzle-teaching](https://github.com/liboran2024/china-province-puzzle-teaching)，公开仓库 |
 | `main` | 项目稳定基线及公共文档 |
 | `teaching` | 当前教师教学版，课堂展示、提示、接力拼图 |
 | `testing` | 从教学版建立的后续学生测试版开发起点；目前游戏功能相同，未实现独立测验规则 |
 | 初版在线演示 | [Sites 演示](https://china-puzzle-classroom.libor1206.chatgpt.site)，原有私有发布，需有访问权限的账号 |
 | 独立网页发布包 | `npm run build:web` 生成 `dist-web/`，无需 ChatGPT 登录即可运行 |
 | GitHub 自动检查 | 推送或 PR 后运行类型检查、游戏状态检查、静态构建并保存构建产物 |
-| GitHub Pages | 已提供手动发布工作流，尚未启用 Pages 或发布新的公开入口 |
+| GitHub Pages | 已启用，发布teaching分支；[教师教学版游戏](https://liboran2024.github.io/china-province-puzzle-teaching/) |
 
 上传 GitHub 不会自动替换原 Sites 网页。Git 分支也不会自动成为不同的网页地址。
 
@@ -54,7 +54,7 @@ GitHub仓库是私有的，必须在浏览器登录 `liboran2024` 或获授权�
 
 ## 4. 本地开发：第一次准备
 
-使用 Node.js **22.22.3**（与自动检查一致）、npm 和 Git。私有仓库需要先通过自己的 GitHub 账号登录。不要将账号令牌写入源码或文档。
+使用 Node.js **22.22.3**（与自动检查一致）、npm 和 Git。读取公开源码无需登录；推送修改需要GitHub写权限。不要将账号令牌写入源码或文档。
 
 在终端执行：
 
@@ -193,16 +193,16 @@ python -m http.server 8080 --bind 127.0.0.1 --directory dist-web
 
 红色失败不等于网站更新成功。先查看失败步骤，修复后重新提交。自动检查不会覆盖已上线的网页。
 
-## 10. 发布路径B：GitHub Pages（可选，尚未启用）
+## 10. 发布路径B：GitHub Pages（已启用）
 
 GitHub Pages 只提供静态网页托管，不能直接运行本项目原 `dist/server` 中的 Worker。因此必须发布 `dist-web/`。
 
-1. 先确认 GitHub 账号套餐是否支持当前私有仓库使用 Pages；若不支持，可选学校服务器，或自行决定是否公开仓库。不要为启用 Pages 未经考虑公开代码。
+1. 当前账号套餐不支持原私有仓库使用Pages，已于2026-09-06经所有者授权将教学版仓库公开，并启用Pages。
 2. 仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
 3. 进入 **Actions → Publish selected branch to GitHub Pages → Run workflow**。
 4. 选择 `teaching` 分支并运行；工作流会检查、构建、上传并部署。
 5. 若 `github-pages` 环境限制只能从默认分支发布，在仓库 **Settings → Environments → github-pages** 将允许发布分支明确设置为 `teaching`，以后按需加入 `testing`。
-6. 等待部署成功，使用该次运行返回的实际 URL。预期项目路径通常是 `https://liboran2024.github.io/china-province-puzzle-teaching/`，目前不能将它当作已开通入口。
+6. 等待部署成功，使用实际URL：`https://liboran2024.github.io/china-province-puzzle-teaching/`。后续每次发布仍需等待工作流成功。
 7. 在未登录 GitHub 的窗口和学校真实网络检查访问效果；Pages 的访问规则不同于私有源码仓库权限，普通 Pages 发布可能对公众可见。
 
 **一个仓库的 Pages 默认只有一个站点。** 手动用 `testing` 发布会替换此前 `teaching` 发布的内容，不会自动产生第二个学生入口。要同时上线两版，先设计双目录打包或分别部署，当前工作流没有宣称支持双站点。
@@ -253,7 +253,7 @@ Sites 的完整流程是：修改源码 → 检查 → 构建 → 将准确提�
 | 页面白屏 | 是否通过HTTP打开；是否遗漏assets；部署的是否是dist-web内文件 |
 | 教师修改后线上没变化 | 推送源码不等于部署；查看实际发布分支、提交和缓存 |
 | Sites要求登录 | 这是原私有站点的权限，不是游戏自身需要登录 |
-| GitHub仓库404 | 私有仓库需登录所有者或获授权账号 |
+| GitHub仓库404 | 当前已公开，检查地址和网络；不需要登录所有者账号 |
 | Pages工作流报权限/404 | 检查套餐、Settings→Pages、环境允许分支；尚未启用时不会自动成功 |
 | 两个分支只有一个网址 | 单个Pages站点被最后一次部署替换；需另做双目录或双项目发布 |
 | 地图重新生成失败 | 在仓库根目录执行，检查public/china-source.json是否存在且有效 |
