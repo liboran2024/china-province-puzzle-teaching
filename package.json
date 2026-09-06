@@ -6,6 +6,11 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "dev:web": "vite --config vite.web.config.ts --host 127.0.0.1",
+    "build:web": "vite build --config vite.web.config.ts",
+    "preview:web": "vite preview --config vite.web.config.ts --host 127.0.0.1",
+    "check": "tsc --noEmit && node --experimental-strip-types scripts/check-game.mjs",
+    "map:prepare": "node scripts/prepare-map.mjs",
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
