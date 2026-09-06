@@ -1,8 +1,11 @@
 # 拼出中国：中国政区互动拼图
 
+> 目录已整理到 teaching；详细目录说明见 [项目文件说明.md](项目文件说明.md)。学生测验版已在独立的 testing 目录和 [china-province-puzzle-testing 仓库](https://github.com/liboran2024/china-province-puzzle-testing) 开发，本文旧 testing 分支说明仅指教师仓库保留的起始基线。
+
+
 ## 先打开游戏：本机使用
 
-本机直接双击 `E:\拼图\china-puzzle\启动游戏.bat`。程序通过已安装的 Python 启动本地网页服务并打开浏览器，保留运行窗口即可游戏，关闭窗口停止服务。无需登录 GitHub 或 ChatGPT。
+本机直接双击 `E:\拼图\teaching\project\启动游戏.bat`。程序通过已安装的 Python 启动本地网页服务并打开浏览器，保留运行窗口即可游戏，关闭窗口停止服务。无需登录 GitHub 或 ChatGPT。
 
 下载压缩包后，请先全部解压，再双击其中的 `启动游戏.bat`，不要直接双击 `index.html`。换到其他电脑时需安装 Python 3 并让 `python` 命令可用。若未自动弹出浏览器，打开启动窗口打印的 `http://127.0.0.1:端口/` 地址。
 
@@ -68,7 +71,7 @@ npm run dev:web
 
 打开终端打印的 Local 地址。开发服务会在保存代码后更新页面。结束时按 Ctrl+C。`npm ci` 根据 `package-lock.json` 安装确定版本；获取源码和首次安装依赖需要可用网络。
 
-当前电脑的工程位置为 `E:\拼图\china-puzzle`。如果已在该目录工作，直接切换分支并启动，不需要再次克隆覆盖。
+当前电脑的工程位置为 `E:\拼图\teaching\project`。如果已在该目录工作，直接切换分支并启动，不需要再次克隆覆盖。
 
 ### 日常开发
 
